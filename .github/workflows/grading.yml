@@ -11,11 +11,10 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
       - name: More info
-        if: failure()
         uses: githubtraining/looking-glass-action@issue-feedback
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          feedback: ${{ steps.pages.outputs.report }}
+          feedback: ${{ steps.pages.outputs.reports }}
   troubleshoot-activity:
     if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
